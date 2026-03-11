@@ -16,8 +16,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                docker compose down
                 docker rm -f frontend_site || true
-                docker-compose up -d web
+                docker compose build
+                docker-compose up -d --force-recreate 
                 '''
             }
         }
