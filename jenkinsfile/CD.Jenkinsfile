@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "lucasdev18/site-personal"
+        PROJECT_DIR = "/usr/local/site-personal"
     }
 
     stages {
@@ -13,17 +14,13 @@ pipeline {
             }
         }
 
-        stage('Deploy Container') {
+        stage('Deploy') {
             steps {
                 sh '''
-                docker stop frontend_site || true
-                docker rm frontend_site || true
+                cd $PROJECT_DIR
 
-                docker run -d \
-                --name frontend_site \
-                -p 80:80 \
-                -p 443:443 \
-                $DOCKER_IMAGE:latest
+                docker compose pull frontend
+                docker compose up -d frontend
                 '''
             }
         }
