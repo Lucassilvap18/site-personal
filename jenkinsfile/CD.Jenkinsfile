@@ -17,8 +17,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                cd $PROJECT_DIR
-
                 docker compose pull frontend
                 docker compose up -d frontend
                 '''
