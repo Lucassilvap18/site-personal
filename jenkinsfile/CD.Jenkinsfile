@@ -16,7 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                docker-compose pull web
+                docker rm -f frontend_site || true
                 docker-compose up -d web
                 '''
             }
