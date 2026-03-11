@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh '''
                 docker-compose pull frontend
-                docker-compose up -d frontend
+                docker-compose up -d web
                 '''
             }
         }
