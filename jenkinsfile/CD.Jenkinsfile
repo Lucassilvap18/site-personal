@@ -3,7 +3,6 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "lucasdev18/site-personal"
-        PROJECT_DIR = "/usr/local/site-personal"
     }
 
     stages {
@@ -17,8 +16,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                docker compose pull frontend
-                docker compose up -d frontend
+                docker-compose pull frontend
+                docker-compose up -d frontend
                 '''
             }
         }
