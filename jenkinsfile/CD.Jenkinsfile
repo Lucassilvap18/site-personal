@@ -16,7 +16,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                docker compose down
                 docker rm -f frontend_site || true
                 docker rm -f nginx_site || true
                 docker compose build
