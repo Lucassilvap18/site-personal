@@ -16,11 +16,11 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 sh '''
-                docker stop site-personal || true
-                docker rm site-personal || true
+                docker stop frontend_site || true
+                docker rm frontend_site || true
 
                 docker run -d \
-                --name site-personal \
+                --name frontend_site \
                 -p 80:80 \
                 -p 443:443 \
                 $DOCKER_IMAGE:latest
