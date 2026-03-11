@@ -22,7 +22,7 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/Dockerfile.nginx
-    image: lucassilvap18/site-personal:latest
+    image: lucasdev18/site-personal:latest
     container_name: frontend_site
     restart: always
     networks:
