@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "seuDockerHub/site-personal"
+        DOCKER_IMAGE = "Lucassilvap18/site-personal"
     }
 
     stages {
@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE:latest .'
+                sh 'docker build -f dockerfiles/Dockerfile.nginx -t $DOCKER_IMAGE:latest .'
             }
         }
 
