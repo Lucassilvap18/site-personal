@@ -31,18 +31,18 @@ pipeline {
         //     }
         // }
 
-        stage('Prepare SSL') {
-            steps {
-                sh '''
-                if [ ! -f "$WORKSPACE/CD/fullchain.pem" ] || [ ! -f "$WORKSPACE/CD/privkey.pem" ]; then
-                  echo "Copiando certificados para o workspace..."
-                  cp -v /etc/letsencrypt/live/landing.profissionallucassilva.shop/fullchain.pem $WORKSPACE/CD/fullchain.pem
-                  cp -v /etc/letsencrypt/live/landing.profissionallucassilva.shop/privkey.pem $WORKSPACE/CD/privkey.pem
-                fi
-                ls -l $WORKSPACE/CD/*.pem
-                '''
-            }
-        }
+        // stage('Prepare SSL') {
+        //     steps {
+        //         sh '''
+        //         if [ ! -f "$WORKSPACE/CD/fullchain.pem" ] || [ ! -f "$WORKSPACE/CD/privkey.pem" ]; then
+        //           echo "Copiando certificados para o workspace..."
+        //           cp -v /etc/letsencrypt/live/landing.profissionallucassilva.shop/fullchain.pem $WORKSPACE/CD/fullchain.pem
+        //           cp -v /etc/letsencrypt/live/landing.profissionallucassilva.shop/privkey.pem $WORKSPACE/CD/privkey.pem
+        //         fi
+        //         ls -l $WORKSPACE/CD/*.pem
+        //         '''
+        //     }
+        // }
 
         stage('Deploy') {
             steps {
