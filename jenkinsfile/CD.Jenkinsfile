@@ -19,17 +19,17 @@ pipeline {
             }
         }
 
-        stage('Check nginx.conf') {
-            steps {
-                sh '''
-                if [ ! -f "$WORKSPACE/CD/nginx/nginx.conf" ]; then
-                  echo "Erro: nginx.conf não encontrado!"
-                  exit 1
-                fi
-                ls -l "$WORKSPACE/CD/nginx/nginx.conf"
-                '''
-            }
-        }
+        // stage('Check nginx.conf') {
+        //     steps {
+        //         sh '''
+        //         if [ ! -f "$WORKSPACE/CD/nginx/nginx.conf" ]; then
+        //           echo "Erro: nginx.conf não encontrado!"
+        //           exit 1
+        //         fi
+        //         ls -l "$WORKSPACE/CD/nginx/nginx.conf"
+        //         '''
+        //     }
+        // }
 
         stage('Prepare SSL') {
             steps {
