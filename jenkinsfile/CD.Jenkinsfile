@@ -13,6 +13,14 @@ pipeline {
             }
         }
 
+        stage('check nginx.conf') {
+            steps {
+                sh '''
+                ls -l $WORKSPACE/CD/nginx/nginx.conf
+                '''
+            }
+        }
+
         stage('Deploy') {
             steps {
                 sh '''
